@@ -1,0 +1,19 @@
+From: Luca Bianchi <l.bianchi@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Date: Mon, 27 Oct 2026 17:20:00 +0200
+Subject: Pair — what we expect at delivery
+Message-ID: <pair-0030@sara.it>
+
+So we're aligned on what "done" looks like, here's the checklist for delivery:
+
+- **Javadoc** on the relevant classes and methods — we read it during review.
+- The API **documented with Swagger / OpenAPI**, reachable when the app runs.
+- A **minimal but real test suite**: at least one **success** case and one **validation-error** case
+  for the main operations. Not asking for 100% coverage, asking for meaningful tests.
+- The app must **boot on H2 with zero external setup** — a reviewer just runs it and calls the API.
+- It should come up with a **realistic dataset already loaded** (we said at least ~30 items across the
+  different types) so search and detail can be tried immediately.
+
+Keep the layered architecture clean, please. Shout if anything in the requirements is unclear.
+
+Luca

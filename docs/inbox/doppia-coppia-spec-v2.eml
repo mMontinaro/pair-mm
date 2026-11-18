@@ -1,0 +1,14 @@
+From: Simona Greco <s.greco@sara.it>
+To: Doppia Coppia Team <doppiacoppia-dev@sara.it>
+Date: Thu, 29 Oct 2026 10:15:00 +0200
+Subject: Doppia Coppia spec v2 (attached)
+Message-ID: <dc-0003@sara.it>
+
+Team,
+
+v2 of the Doppia Coppia spec is attached. Main changes: the contact groups, the import-from-CSV flow
+and the pagination defaults for the contacts list. Nothing here touches other projects.
+
+[attachment: DoppiaCoppia_Spec.pdf]
+
+Simona

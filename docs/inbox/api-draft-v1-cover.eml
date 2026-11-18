@@ -1,0 +1,14 @@
+From: Marco De Santis <m.desantis@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Date: Wed, 7 Oct 2026 15:02:00 +0200
+Subject: Pair — API draft v1 (attached)
+Message-ID: <pair-0003@sara.it>
+
+Here's a **first draft** of the API, attached as a PDF. It's a starting point to get the shape of
+the requests and responses across — **expect it to change**. Where a later email contradicts this
+PDF, the email wins. I already know a couple of things in here will move (the HTTP method for
+creation and the page size, at least), I'll confirm those in writing.
+
+[attachment: Pair_API_Draft_v1.pdf]
+
+Marco

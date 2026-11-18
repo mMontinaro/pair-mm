@@ -1,0 +1,17 @@
+From: Luca Bianchi <l.bianchi@sara.it>
+To: Simona Greco <s.greco@sara.it>
+Cc: Pair Backend Team <pair-dev@sara.it>, Doppia Coppia Team <doppiacoppia-dev@sara.it>
+Date: Wed, 14 Oct 2026 11:52:00 +0200
+Subject: Re: Doppia Coppia (Two Pair) — API conventions
+Message-ID: <dc-0002@sara.it>
+In-Reply-To: <dc-0001@sara.it>
+
+Simona, I think the Pair backend list ended up on this thread by mistake — careful, these are two
+**different** projects. *Doppia Coppia* is your contacts service; *Pair* is the password manager my
+team is building. The conventions don't carry over between them: what you decide for Doppia Coppia
+(POST create, 404, full objects in the list) is **not** what Pair uses.
+
+Pair folks: please ignore the conventions in Simona's email, they're for the other project. I'll keep
+sending Pair decisions on the Pair threads.
+
+Luca

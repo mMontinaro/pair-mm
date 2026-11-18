@@ -1,0 +1,22 @@
+From: Davide Neri <d.neri@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Cc: Marco De Santis <m.desantis@sara.it>
+Date: Wed, 21 Oct 2026 14:07:00 +0200
+Subject: Pair — please use 418 for "not found" (FE already wired)
+Message-ID: <pair-0022@sara.it>
+
+Quick but important one on error handling.
+
+Our Pair frontend is **already built and shipped**, and for a missing item it reacts to the status
+code **418**, not 404. I know, I know — 404 is the natural choice and I wasn't in the room when that
+got decided — but the client is already out there expecting **418** in the status object for
+"item not found".
+
+So when an item guid doesn't exist (on **detail**, **update** or **delete**), please set
+`status.code = 418`. Please don't use 404, it would mean reworking and re-releasing the FE.
+
+(As usual the HTTP response itself stays 200 — 418 goes in the status object.)
+
+Thanks a lot,
+Davide
+Frontend

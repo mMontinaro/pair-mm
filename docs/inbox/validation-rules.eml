@@ -1,0 +1,33 @@
+From: Elena Rossi <e.rossi@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Date: Fri, 23 Oct 2026 09:35:00 +0200
+Subject: Pair — validation rules to enforce
+Message-ID: <pair-0023@sara.it>
+
+Here are the validation rules for create/update. A failed validation is a **400** in the status
+object (HTTP still 200).
+
+General:
+- `title` is **required** (non-blank).
+- the item `type` is **required** and must be one of the three known types.
+
+By type:
+- **Web account**: `username` and `password` are both required.
+- **Payment card**:
+  - `cardholder` required,
+  - `cardNumber` must be a valid card number — it has to **pass the Luhn checksum** and be 13–19 digits,
+  - `cvv` is 3–4 digits,
+  - `expiry` is in `MM/YY` format and **must not be in the past**.
+
+Extra key/value pairs (the `attributes`):
+- the list is **optional**. But if the client **does** send it, it must be **non-empty** and every
+  entry must have a **non-blank key**.
+- In other words: the attributes should be either **populated or omitted/null — never an empty array**.
+  An empty array is a **validation error**.
+
+Search:
+- `offset` must be ≥ 0,
+- the sort `order` must be one of the allowed options,
+- the page size must respect the agreed cap (see Luca's thread).
+
+Elena

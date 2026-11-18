@@ -1,0 +1,21 @@
+From: Marco De Santis <m.desantis@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Date: Fri, 16 Oct 2026 12:30:00 +0200
+Subject: Pair — final endpoint conventions
+Message-ID: <pair-0020@sara.it>
+
+Confirming the endpoint conventions, these are final and override the draft PDF where they differ.
+All of them live under the versioned base path `/item/v1/item`.
+
+- **Create** → `PUT /item/v1/item`
+  Note: we create with **PUT**, like our other backends — **not POST**. The draft said POST, ignore
+  that, it was wrong.
+- **Update** → `POST /item/v1/item/{guid}`
+- **Delete** → `DELETE /item/v1/item/{guid}`
+- **Search** → `POST /item/v1/item/search` (filters go in the request body: the search string,
+  the offset, the page size and the sort order)
+- **Detail** → `GET /item/v1/item/{guid}`
+
+Remember: every one of these still answers **HTTP 200**, with the real code in the status object.
+
+Marco

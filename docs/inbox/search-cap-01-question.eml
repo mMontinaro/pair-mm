@@ -1,0 +1,17 @@
+From: Luca Bianchi <l.bianchi@sara.it>
+To: Elena Rossi <e.rossi@sara.it>
+Cc: Pair Backend Team <pair-dev@sara.it>
+Date: Mon, 12 Oct 2026 10:05:00 +0200
+Subject: Pair search — do we need a page-size cap?
+Message-ID: <pair-0010@sara.it>
+
+Elena,
+
+thinking about the search endpoint: if we let clients ask for arbitrarily large pages we could get
+a real performance problem as the vault grows. I'd like to put a **hard cap** on the page size and
+reject anything above it.
+
+What number would you suggest as the maximum?
+
+Luca
+Project Manager

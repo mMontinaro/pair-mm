@@ -1,0 +1,15 @@
+From: Luca Bianchi <l.bianchi@sara.it>
+To: Elena Rossi <e.rossi@sara.it>
+Cc: Pair Backend Team <pair-dev@sara.it>
+Date: Tue, 13 Oct 2026 09:12:00 +0200
+Subject: Re: Pair search — do we need a page-size cap?
+Message-ID: <pair-0012@sara.it>
+In-Reply-To: <pair-0011@sara.it>
+
+Thanks Elena. I slept on it and I want to be conservative on load, so the **final decision is a
+hard cap of 20 items per page**.
+
+So: the maximum page size is **20**. The backend must **validate the requested page size and reject
+anything above 20** (treat it as a validation error). Please implement 20, not 25.
+
+Luca

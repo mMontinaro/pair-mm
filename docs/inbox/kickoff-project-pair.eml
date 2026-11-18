@@ -1,0 +1,37 @@
+From: Giorgia Fontana <g.fontana@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Date: Mon, 5 Oct 2026 09:14:00 +0200
+Subject: Project Pair — kickoff & scope
+Message-ID: <pair-0001@sara.it>
+
+Hi everyone,
+
+kicking off **Project Pair**: the backend of our new password manager. Think of it as a
+secure *vault* where a user stores the things they don't want to forget and don't want to leak.
+
+A vault holds **items**, and there are three kinds of item:
+
+1. **Web account** — a login for a website: a username and a password.
+2. **Personal information** — free-form stuff the user defines themselves as **key/value pairs**
+   (no fixed fields: the user decides what to store, e.g. "Membership number" = "ABC123").
+3. **Payment card** — the classic set: cardholder, card number, CVV and expiry date.
+
+On top of that, **every item — whatever its type — can also carry extra key/value pairs.**
+Example: a user saves their debit card (a payment card) and, in the extra fields, adds the **PIN**.
+So the key/value pairs are a general mechanism available on all three types.
+
+Functionally the backend has to let the user:
+
+- **create** an item,
+- **update** an item,
+- **delete** an item,
+- **search** items,
+- get the **detail** of a single item.
+
+Please keep the usual Sara layered backend structure (web / service / database, the request &
+response envelopes with the shared status object), like the other services. Marco will send the
+API draft and the security requirements separately — his stuff is binding, follow it closely.
+
+Thanks,
+Giorgia
+Product Owner — Project Pair

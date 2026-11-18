@@ -1,0 +1,14 @@
+From: Elena Rossi <e.rossi@sara.it>
+To: Luca Bianchi <l.bianchi@sara.it>
+Cc: Pair Backend Team <pair-dev@sara.it>
+Date: Mon, 12 Oct 2026 16:28:00 +0200
+Subject: Re: Pair search — do we need a page-size cap?
+Message-ID: <pair-0011@sara.it>
+In-Reply-To: <pair-0010@sara.it>
+
+Hi Luca,
+
+I'd suggest **25** per page. It feels like a good balance between fewer round-trips and keeping the
+payload reasonable.
+
+Elena

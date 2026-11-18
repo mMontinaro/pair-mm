@@ -1,0 +1,20 @@
+From: Giorgia Fontana <g.fontana@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Cc: Davide Neri <d.neri@sara.it>
+Date: Mon, 19 Oct 2026 10:48:00 +0200
+Subject: Pair search results — what the list must return
+Message-ID: <pair-0021@sara.it>
+
+One correction to the draft. The draft said the search list returns only the **title** of each item.
+After going through the screens with Davide (frontend), that's not enough.
+
+The **search result list** must return, for each item:
+- the **title**,
+- the associated **url** when there is one,
+- plus the **identifier** and the **type**, so the UI can open the right detail screen.
+
+Very important, and this is a hard rule: **no secrets in the search results.** Passwords, card
+numbers, CVVs, PINs — none of the sensitive values may appear in the search list. Those are only
+ever returned by the **detail** call. The list is just enough to show a row and navigate.
+
+Giorgia

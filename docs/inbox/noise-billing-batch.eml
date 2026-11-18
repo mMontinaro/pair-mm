@@ -1,0 +1,13 @@
+From: Paolo Verdi <p.verdi@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Date: Wed, 15 Oct 2026 18:44:00 +0200
+Subject: Help with the Billing batch retry logic?
+Message-ID: <misc-9920@sara.it>
+
+Hey, sorry to bother you — totally unrelated to your current project, but you're the person who knows
+the old **Billing** batch best. We have a job that occasionally fails on the nightly run and doesn't
+retry cleanly; the chunk restarts from the beginning instead of the last commit point. When you have
+ten minutes next week, could you point me at where the retry/skip policy is configured? No rush.
+
+Thanks!
+Paolo

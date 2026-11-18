@@ -1,0 +1,21 @@
+From: Simona Greco <s.greco@sara.it>
+To: Doppia Coppia Team <doppiacoppia-dev@sara.it>
+Cc: Pair Backend Team <pair-dev@sara.it>
+Date: Wed, 14 Oct 2026 11:00:00 +0200
+Subject: Doppia Coppia (Two Pair) — API conventions
+Message-ID: <dc-0001@sara.it>
+
+Hi team,
+
+aligning the conventions for **Doppia Coppia** (the "Two Pair" address-book / contacts service)
+before we start coding:
+
+- creation is a **POST** on the collection,
+- a missing resource returns a plain **404**,
+- the list endpoint returns the **full object** for each row (we don't have sensitive data here, so
+  it's fine to send everything).
+
+Let's lock these so we're all consistent.
+
+Simona
+PM — Doppia Coppia

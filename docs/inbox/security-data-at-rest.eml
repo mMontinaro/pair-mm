@@ -1,0 +1,32 @@
+From: Marco De Santis <m.desantis@sara.it>
+To: Pair Backend Team <pair-dev@sara.it>
+Cc: Giorgia Fontana <g.fontana@sara.it>
+Date: Wed, 7 Oct 2026 11:40:00 +0200
+Subject: Pair — security & data-at-rest requirements
+Message-ID: <pair-0002@sara.it>
+
+Team,
+
+this is a password manager, so the security bar is non-negotiable. Requirements for the data
+**at rest**:
+
+- The **sensitive values must be stored encrypted** in the database. Never in clear text.
+  Sensitive = **passwords**, **card numbers**, **CVV**.
+- For the extra **key/value pairs**, sensitivity is per-pair: each pair carries a **flag** that
+  says whether its value is sensitive and must be encrypted. The user's debit-card PIN → flag on,
+  encrypt it. A harmless nickname → flag off, store as is. Respect the flag per entry.
+- Use **authenticated encryption — AES-GCM** — with a **fresh random IV/nonce for every value**.
+  No ECB, no fixed/reused IV. (We will inspect the DB: if we can read a password or a card number
+  in clear, the exercise is failed on security.)
+- The **encryption master key comes from configuration / environment**, loaded at runtime.
+  It must **not** be hardcoded in the source and must **not** be committed to the repo.
+
+Response convention — same as every Sara backend, I'm repeating it because people forget:
+**every endpoint returns HTTP 200.** The real outcome of the call travels inside the `status`
+object of the body (a numeric `code`, a `message`, a `traceId`). See the envelope standard I'm
+attaching. Error situations are 200 at the HTTP level with the proper code in `status.code`.
+
+[attachment: Sara_Response_Envelope_Standard.pdf]
+
+Marco
+Solution Architect / Security
