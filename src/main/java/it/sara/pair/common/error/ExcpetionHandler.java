@@ -29,7 +29,8 @@ public class ExcpetionHandler {
         this.traceIds = traceIds;
     }
 
-    private ResponseEntity<BaseResponse<Void>> response(int code, String message) {
+    private ResponseEntity<BaseResponse<Void>> response(int code, String message, String error) {
+        LOG.error(String.valueOf(code) + " - " + message + (error != null ? " - " + error : ""));
         return ResponseEntity.ok(
             new BaseResponse<>(
                 new BaseStatus(
@@ -43,18 +44,17 @@ public class ExcpetionHandler {
 
     @ExceptionHandler (BaseException.class)
     public ResponseEntity<BaseResponse<Void>> business(BaseException e) {
-        return response(e.getCode(), e.getMessage());
+        return response(e.getCode(), e.getMessage(), e.getMessage());
     }
 
     @ExceptionHandler (MethodArgumentNotValidException.class)
     public ResponseEntity<BaseResponse<Void>> business(MethodArgumentNotValidException e) {
-        return response(HttpStatus.BAD_REQUEST.value(), Messages.VALIDATION_FAILED);
+        return response(HttpStatus.BAD_REQUEST.value(), Messages.VALIDATION_FAILED, e.getMessage());
     }
 
     @ExceptionHandler (Exception.class)
     public ResponseEntity<BaseResponse<Void>> unexpected(Exception e) {
-        LOG.error(Messages.UNEXPECTED_ERROR, e);
-        return response(HttpStatus.INTERNAL_SERVER_ERROR.value(), Messages.UNEXPECTED_ERROR);
+        return response(HttpStatus.INTERNAL_SERVER_ERROR.value(), Messages.UNEXPECTED_ERROR, e.getMessage());
     }
 
 }
