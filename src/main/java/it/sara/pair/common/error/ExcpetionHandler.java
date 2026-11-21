@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import it.sara.pair.common.api.BaseResponse;
 import it.sara.pair.common.api.BaseStatus;
 import it.sara.pair.common.constants.Messages;
+import it.sara.pair.common.factory.BaseStatusFactory;
 import it.sara.pair.common.trace.TraceIdProvider;
 
 /**
@@ -23,28 +24,24 @@ import it.sara.pair.common.trace.TraceIdProvider;
 @RestControllerAdvice 
 public class ExcpetionHandler {
     private static final Logger LOG = LoggerFactory.getLogger(ExcpetionHandler.class);
-    private final TraceIdProvider traceIds;
+    private final BaseStatusFactory factory;
 
-    public ExcpetionHandler(TraceIdProvider traceIds) {
-        this.traceIds = traceIds;
+    public ExcpetionHandler(BaseStatusFactory factory) {
+        this.factory = factory;
     }
 
     private ResponseEntity<BaseResponse<Void>> response(int code, String message, String error) {
         LOG.error(String.valueOf(code) + " - " + message + (error != null ? " - " + error : ""));
         return ResponseEntity.ok(
             new BaseResponse<>(
-                new BaseStatus(
-                    code, 
-                    message, 
-                    traceIds.getCurrentTraceId()
-                ), 
+                factory.error(code, message), 
                 null
             ));
     }
 
     @ExceptionHandler (BaseException.class)
     public ResponseEntity<BaseResponse<Void>> business(BaseException e) {
-        return response(e.getCode(), e.getMessage(), e.getMessage());
+        return response(e.getCode(), e.getMessage(), e.getExtra());
     }
 
     @ExceptionHandler (MethodArgumentNotValidException.class)

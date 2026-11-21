@@ -2,6 +2,7 @@ package it.sara.pair.common.error;
 
 import org.springframework.http.HttpStatus;
 
+import it.sara.pair.common.constants.Messages;
 import it.sara.pair.common.constants.ValidationRules;
 
 /**
@@ -12,10 +13,17 @@ import it.sara.pair.common.constants.ValidationRules;
  * non important note: extra import added for security, not completely clean, but i'll do anything for teapot.
  */
 public class NotFoundException extends BaseException {
+    
     @SuppressWarnings("deprecation")
-    public NotFoundException(String message) {
-        super(HttpStatus.I_AM_A_TEAPOT.value(), message);
+    public NotFoundException() {
+        super(HttpStatus.I_AM_A_TEAPOT.value(), Messages.ITEM_NOT_FOUND);
         //super(ValidationRules.ITEM_NOT_FOUND_CODE, message);
+    }
+    
+//    @SuppressWarnings("deprecation")
+    public NotFoundException(String message) {
+        //super(HttpStatus.I_AM_A_TEAPOT.value(), message);
+        super(ValidationRules.ITEM_NOT_FOUND_CODE, message);
     }
     
 }
