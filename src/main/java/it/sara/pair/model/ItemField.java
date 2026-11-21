@@ -82,5 +82,4 @@ public class ItemField {
         this.vaultItem = vaultItem;
     }
 
-    
 }

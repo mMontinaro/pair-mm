@@ -8,17 +8,18 @@ import it.sara.pair.enums.ItemType;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity 
 @Table(name = "vault_item")
-public class VaultItem {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class VaultItem {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -31,28 +32,23 @@ public class VaultItem {
     @Column (name = "url", length = 2048)
     private String url;
 
-    @Enumerated(EnumType.STRING)
-    @Column (name = "item_type", nullable = false, length = 50)
-    private ItemType itemType;
-
     @OneToMany(mappedBy = "vaultItem", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemField> fields = new ArrayList<>();
 
+    public abstract ItemType getItemType();
+    
     public void addField(ItemField field) {
         fields.add(field);
         field.setVaultItem(this);
     }
 
-    protected VaultItem() {
-        // Default constructor for JPA
+    public void removeField(ItemField field) {
+        fields.remove(field);
+        field.setVaultItem(null);
     }
 
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -71,21 +67,20 @@ public class VaultItem {
         this.url = url;
     }
 
-    public ItemType getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(ItemType itemType) {
-        this.itemType = itemType;
-    }
-
     public List<ItemField> getFields() {
         return fields;
     }
 
-    public void setFields(List<ItemField> fields) {
-        this.fields = fields;
-    }
+    public void setFields(List<ItemField> newFields) {
+        List<ItemField> copy = new ArrayList<>(newFields);
+        
+        for(ItemField field : new ArrayList<>(fields)) {
+            removeField(field);
+        }
 
+        for(ItemField field : copy) {
+            addField(field);
+        }
+    }
     
 }
