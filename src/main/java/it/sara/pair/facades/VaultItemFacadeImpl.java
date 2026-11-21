@@ -1,18 +1,14 @@
 package it.sara.pair.facades;
 
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.sara.pair.common.api.BaseStatus;
-import it.sara.pair.common.api.PagedResponse;
 import it.sara.pair.common.api.PagedResult;
 import it.sara.pair.common.constants.Messages;
 import it.sara.pair.common.dtos.BaseFilterDto;

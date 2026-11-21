@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import it.sara.pair.common.api.BaseResponse;
-import it.sara.pair.common.api.BaseStatus;
 import it.sara.pair.common.constants.Messages;
 import it.sara.pair.common.factory.BaseStatusFactory;
-import it.sara.pair.common.trace.TraceIdProvider;
 
 /**
  * ExcpetionHandler
