@@ -6,4 +6,7 @@ public final class ValidationRules {
     public static final String CVV_REGEX = "^[0-9]{3,4}$";
     public static final String EXPIRY_DATE_REGEX = "^(0[1-9]|1[0-2])\\/([0-9]{2})$";
     public static final Integer MAX_SEARCH_PAGE_SIZE = 20;
+    public static final Integer MIN_SEARCH_PAGE_SIZE = 1;
+    public static final String SEARCH_WILDCARD = "%";
+    
 }
