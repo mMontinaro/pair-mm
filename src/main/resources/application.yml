@@ -10,3 +10,7 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: validate
+  config:
+    import: 
+      - "optional:file:./.env[.properties]"
+      - "optional:file:./.env-secret[.properties]"
