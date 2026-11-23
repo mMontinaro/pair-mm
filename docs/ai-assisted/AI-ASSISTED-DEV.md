@@ -1,0 +1,18 @@
+# AI Assisted Development
+During this project, I refrained from using AI Agents, as the skeleton, the common/, is a framework that I have developed personally over the years.
+
+- I have utilized a version of this framework during my previous work experience, and found that this project was a great way to reproduce what I know, and set the foundation for my future dev work.
+- The frameworks core idea is to favour reusability, and scalability. If a new flow is introduced, it will take a fraction of the time to fully flesh it out.
+
+I have used AI in the following sections:
+- Java records: it introduced and consolidated the record keyword and its use. It explained the conciseness and limitations (no extendability which juxtaposes my core framework, but useful for specific, per project usage, or for requests/responses)
+- Request tracing: explained the jist of correlation and trace IDs. While I have seen it used in the past, I was confused as to what the functional requirement intended. I have never noted the implementation before, so I asked it to generate a request scoped implementation. It suggested the MDC-backed trace ID filter, I furthered my research on my own
+- Startup seed: it introduced CommandLineRunner for loading entries automatically at startup. I also made it generate 30 fictitious vault item records used for testing
+- Tests: it generated the test class covering API behaviour, and some validation cases. The base guidiline was to not introduce redundancy, and to keep the tests short. TDD was not used during this project due to time constraints. I left the testing to the AI. I personally tested and debugged utilizing Postman (no agents).
+- API docs: generated controller annotations for each endpoint
+
+## Limitations and Future development
+- AI output, suggestions and code snippets were more times than not, inaccurate and wrong. Since I used an LLM, generally not as well suited for complex and long-running workflows compared to agents, I instructed it to give me barebones explanations of concepts i requested, and small tweaks I wanted to make stylistically. Code blocks showing me implementations (for example for request tracing) were more generic, they did not require project context and I could implement them manually. 
+- Tracing: I had two iterations of tracing, the first version I made it generate was a random UUID, I realized it would be pointless as it would not be correlated to the error log in any way. After asking for more elegant solutions like MDC, it still fell short when it came to indicating how it ties in with the rest of the project (a given, since I have not given it any context, but I expected it to indicate more or less usage), I had to correct the gap, and adjust the logging myself.
+- Because of the no context I gave it, it would generate classes with variable names that didn't fit the project. During seeder integration and JSON creation, I paid the price. Inadvertedly, I tested the generation and was met with many errors. Obviously I had forgotten to change variable names in the JSON. I manually adjusted field names to actual DTO structure
+- Tests: Due to time restraints, I have not had time to personally check each test's usage, purpose, correctness, flexibility. when revisiting this project, I will either rewrite the tests by hand (not likely) or I will pay closer attention to test generation and making sure that every case is covered.
