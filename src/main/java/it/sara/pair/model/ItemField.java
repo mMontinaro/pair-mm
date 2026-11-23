@@ -19,10 +19,10 @@ public class ItemField {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(name = "key", nullable = false, length = 255)
+    @Column(name = "field_key", nullable = false, length = 255)
     private String key;
 
-    @Column(name = "value", columnDefinition = "CLOB")
+    @Column(name = "field_value", columnDefinition = "CLOB")
     private String value;
 
     @Column(name = "isSensitive", nullable = false)
@@ -34,6 +34,12 @@ public class ItemField {
 
     protected ItemField() {
         // Default constructor for JPA
+    }
+
+    public ItemField(String key, String value, boolean isSensitive) {
+        this.key = key;
+        this.value = value;
+        this.isSensitive = isSensitive;
     }
 
     public ItemField(String key, String value, boolean isSensitive, VaultItem vaultItem) {
