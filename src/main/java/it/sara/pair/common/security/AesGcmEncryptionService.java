@@ -10,6 +10,7 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import it.sara.pair.common.constants.CryptographyConstants;
 import it.sara.pair.common.constants.Messages;
@@ -21,6 +22,7 @@ import it.sara.pair.common.error.CryptographyException;
  * Stored representation: v1:Base64(nonce[12] || ciphertext || tag[16]).
  * An invalid key prevents the application from starting. 
  */
+@Service 
 public class AesGcmEncryptionService implements EncryptionService {
     private final SecretKeySpec key;
     private final SecureRandom secureRandom = new SecureRandom();

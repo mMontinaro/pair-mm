@@ -1,6 +1,7 @@
 package it.sara.pair.common.factory;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
 import it.sara.pair.common.api.BaseStatus;
 import it.sara.pair.common.constants.Messages;
@@ -8,6 +9,7 @@ import it.sara.pair.common.trace.TraceIdRetriever;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor 
+@Component
 public class BaseStatusFactory {
     private final TraceIdRetriever retriever;
 
