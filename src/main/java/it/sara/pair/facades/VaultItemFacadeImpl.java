@@ -79,7 +79,7 @@ public class VaultItemFacadeImpl extends BaseFacadeImpl<ItemDetailDto, UUID> imp
         Sort.Direction direction = filter.order() == SearchOrder.ASC ? Sort.Direction.ASC : Sort.Direction.DESC;
         Page<VaultItem> page = service.search(filter.search(), filter.offset(), filter.pageSize(), direction);
         List<ItemDetailDto> list = page.getContent().stream().map(
-            item -> new ItemDetailDto(item.getId(), null, item.getTitle(), item.getUrl(), null, null, null, null, null, null, null)
+            item -> new ItemDetailDto(item.getId(), item.getItemType(), item.getTitle(), item.getUrl(), null, null, null, null, null, null, null)
         ).toList();
         return new PagedResult<ItemDetailDto>(page.getTotalElements(), list);
     }
