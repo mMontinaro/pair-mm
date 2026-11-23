@@ -1,0 +1,62 @@
+[
+  {
+    "type": "WEB_ACCOUNT",
+    "title": "Demo GitHub Account",
+    "url": "https://github.com",
+    "username": "sample.dev.one",
+    "password": "DemoOnly-Password-01!",
+    "fields": [
+      { "key": "Recovery code", "value": "DEMO-RECOVERY-ALPHA", "isSensitive": true },
+      { "key": "Category", "value": "Development", "isSensitive": false }
+    ]
+  },
+  {
+    "type": "WEB_ACCOUNT",
+    "title": "Demo Email Account",
+    "url": "https://mail.example.com",
+    "username": "demo.user@example.com",
+    "password": "DemoOnly-Password-02!",
+    "fields": [
+      { "key": "Account note", "value": "Synthetic test account", "isSensitive": false }
+    ]
+  },
+  {
+    "type": "PERSONAL_INFORMATION",
+    "title": "Demo Gym Membership",
+    "fields": [
+      { "key": "Member ID", "value": "GYM-DEMO-1001", "isSensitive": false },
+      { "key": "Access PIN", "value": "4826", "isSensitive": true }
+    ]
+  },
+  {
+    "type": "PERSONAL_INFORMATION",
+    "title": "Demo Emergency Notes",
+    "fields": [
+      { "key": "Contact", "value": "Alex Example", "isSensitive": false },
+      { "key": "Private note", "value": "Synthetic confidential note for testing", "isSensitive": true }
+    ]
+  },
+  {
+    "type": "PAYMENT_CARD",
+    "title": "Demo Visa Card",
+    "cardholder": "ALEX EXAMPLE",
+    "cardNumber": "4111111111111111",
+    "cvv": "123",
+    "expiry": "12/30",
+    "fields": [
+      { "key": "Card PIN", "value": "4321", "isSensitive": true },
+      { "key": "Label", "value": "Test card only", "isSensitive": false }
+    ]
+  },
+  {
+    "type": "PAYMENT_CARD",
+    "title": "Demo Mastercard Card",
+    "cardholder": "JAMIE EXAMPLE",
+    "cardNumber": "5555555555554444",
+    "cvv": "456",
+    "expiry": "11/31",
+    "fields": [
+      { "key": "Card PIN", "value": "9876", "isSensitive": true }
+    ]
+  }
+]
