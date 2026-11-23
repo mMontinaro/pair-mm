@@ -11,6 +11,7 @@ I have used AI in the following sections:
 - Startup seed: it introduced CommandLineRunner for loading entries automatically at startup. I also made it generate 30 fictitious vault item records used for testing
 - Tests: it generated the test class covering API behaviour, and some validation cases. The base guidiline was to not introduce redundancy, and to keep the tests short. TDD was not used during this project due to time constraints. I left the testing to the AI. I personally tested and debugged utilizing Postman (no agents).
 - API docs: generated controller annotations for each endpoint
+- Finally, it generated the README.md with instructions on how to start the project
 
 ## Limitations and Future development
 - AI output, suggestions and code snippets were more times than not, inaccurate and wrong. Since I used an LLM, generally not as well suited for complex and long-running workflows compared to agents, I instructed it to give me barebones explanations of concepts i requested, and small tweaks I wanted to make stylistically. Code blocks showing me implementations (for example for request tracing) were more generic, they did not require project context and I could implement them manually. 
